@@ -2,7 +2,7 @@
 A timer manager driven by a thread pool, written in c++11, by Yuwei Mu.  If you find any
 problems using this timer manager, please send me a mail(moogates@163.com)!
 # Example
-## ScheduleAtFixedRate
+## 1. ScheduleAtFixedRate
 ```
   TimerManager tm(8);
   // auto timer_point = std::chrono::system_clock::from_time_t(time(NULL) / 3600 * 3600 + 3600); // start since next clock hour
@@ -26,7 +26,7 @@ Output:
 [2019/08/11 14:18:27.538, 00:00:19.000] do some work with ScheduleAtFixedRate.
 ```
 
-## ScheduleAtFixedDelay
+## 2. ScheduleAtFixedDelay
 ```
   TimerManager tm(4);
   tm.ScheduleAtFixedDelay(1000, 2000, []() { 
@@ -48,7 +48,8 @@ Output:
 [2019/08/11 14:20:15.267, 00:00:23.541] do some work with ScheduleAtFixedDelay.
 [2019/08/11 14:20:17.769, 00:00:26.044] do some work with ScheduleAtFixedDelay.
 ```
-## ScheduleRelative
+## 3. ScheduleRelative
+```
   TimerManager tm(4);
 
   {
@@ -65,7 +66,7 @@ Output:
     });
   }
 ```
-## ScheduleAbsolute
+## 4. ScheduleAbsolute
 ```
   TimerManager tm(4);
   { 
