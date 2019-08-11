@@ -50,9 +50,9 @@ int main() {
   }
 
   {
-    int64_t timeout = 197;
-    tm.ScheduleRelative(timeout, [timeout]() { 
-        std::cout << Uptime() << "do some work with ScheduleRelative after " << timeout << "ms" << std::endl;
+    int64_t timeout_ms = 197;
+    tm.ScheduleRelative(timeout_ms, [timeout_ms]() { 
+        std::cout << Uptime() << "do some work with ScheduleRelative after " << timeout_ms << "ms" << std::endl;
     });
   }
 
