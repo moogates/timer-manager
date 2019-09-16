@@ -1,5 +1,5 @@
 # timer-manager
-A timer manager driven by a thread pool, written in c++11, by Yuwei Mu.  If you find any
+A timer(timed task) manager driven by a thread pool, written in c++11, by Yuwei Mu.  If you find any
 problems using this timer manager, please send me a mail(moogates@163.com)!
 # Example
 ## 1. ScheduleAtFixedRate
