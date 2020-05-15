@@ -1,11 +1,10 @@
 # timer-manager
-A timer manager driven by a thread pool, written in c++11, by Yuwei Mu.  If you find any
+A timer(timed task) manager driven by a thread pool, written in c++11, by Yuwei Mu.  If you find any
 problems using this timer manager, please send me a mail(moogates@163.com)!
 # Example
 ## 1. ScheduleAtFixedRate
-```
+``` C++
   TimerManager tm(8);
-  // auto timer_point = std::chrono::system_clock::from_time_t(time(NULL) / 3600 * 3600 + 3600); // start since next clock hour
   auto timer_point = std::chrono::system_clock::now() + std::chrono::milliseconds(1000);
   tm.ScheduleAtFixedRate(timer_point, 2000, []() {
       std::cout << Uptime() << "do some work with ScheduleAtFixedRate." << std::endl;
@@ -27,7 +26,7 @@ Output:
 ```
 
 ## 2. ScheduleAtFixedDelay
-```
+``` C++
   TimerManager tm(4);
   tm.ScheduleAtFixedDelay(1000, 2000, []() { 
       std::cout << Uptime() << "do some work with ScheduleAtFixedDelay." << std::endl;
@@ -49,7 +48,7 @@ Output:
 [2019/08/11 14:20:17.769, 00:00:26.044] do some work with ScheduleAtFixedDelay.
 ```
 ## 3. ScheduleRelative
-```
+``` C++
   TimerManager tm(4);
 
   {
@@ -67,7 +66,7 @@ Output:
   }
 ```
 ## 4. ScheduleAbsolute
-```
+``` C++
   TimerManager tm(4);
   { 
     // schedules at a std::chrono time_point (800ms later)
