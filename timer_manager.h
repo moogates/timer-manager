@@ -19,8 +19,10 @@
 
 class TimerManager {
 public:
-    explicit TimerManager(size_t thread_pool_size);
+    explicit TimerManager(size_t worker_threads);
     ~TimerManager();
+
+    void Start();
 
     void ScheduleRelative(int64_t timeout_ms, const std::function<void(void)>& job);
     template<class R, class P>
@@ -57,8 +59,9 @@ private:
 private:
     TimerManager(TimerManager&) = delete;
     TimerManager& operator=(TimerManager&) = delete;
+    // TimerManager(TimerManager&&) = delete;
+    // TimerManager& operator=(TimerManager&&) = delete;
 
-    bool NeedWakeUp() const;
     void TimerWorker();
 };
 
