@@ -46,7 +46,8 @@ public:
                               const std::function<void(void)>& job);
 
 private:
-    typedef std::chrono::system_clock::time_point TimePoint;
+    using TimePoint = std::chrono::system_clock::time_point;
+    // typedef std::chrono::system_clock::time_point TimePoint;
 
     std::vector<std::thread> timer_threads_;
     std::multimap<TimePoint, std::function<void(void)>> job_queue_;

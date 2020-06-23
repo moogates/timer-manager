@@ -48,7 +48,7 @@ void TimerManager::ScheduleRelative(int64_t timeout_ms,
 
 void TimerManager::ScheduleAbsolute(int64_t unix_time_ms, const std::function<void(void)>& job) {
   auto duration = std::chrono::milliseconds(unix_time_ms);
-  std::chrono::system_clock::time_point tp(duration);
+  TimePoint tp(duration);
   ScheduleAbsolute(tp, job);
 }
 
